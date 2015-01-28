@@ -24,15 +24,12 @@
     <title>Tell Black Lawmakers: We need Internet freedom</title>
 
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-    <script src="https://act.colorofchange.org/samples/actionkit.js"></script>
-    <script src="//c.shpg.org/176/sp.js"></script>
+    <script type="text/javascript" src="js/jquery.browser.js"></script>
+    <script type="text/javascript" src="https://act.colorofchange.org/samples/actionkit.js"></script>
+    <script type="text/javascript" src="//c.shpg.org/176/sp.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">{% include share_tweet_text.js %}</script>
-
-    <script type="text/javascript">
-        actionkit.forms.initPage();
-    </script>
 </head>
 <body class="call">
     <div id="header">
@@ -51,7 +48,8 @@
             <br>We need Internet freedom</h1>
 
             <div class="petition-body">
-                <form class="ak-form" name="act" method="POST" action="https://act.colorofchange.org/act" class="clear phoneForm">
+                <form class="ak-form" name="act" class="clear phoneForm">
+                    <input type="hidden" name="page" value="" />
                     <div id="unknown_user">{% include user_form.html %}</div>
                     <div id="known_user" style="display: none;">
                         Not <span id="known_user_name"></span>?  <a href="?" onclick="return actionkit.forms.logOut()">Click here.</a>
@@ -61,7 +59,7 @@
                         <input id="id_phone" type="tel" name="phone" placeholder="Phone *">
                     </div>
                     <div class="clearfix"></div>
-                    <input class="red-button" type="submit" value="Call Now!" />
+                    <input class="red-button" type="submit" value="Call Now!" id="call_button" />
                 </form>
                 {% include disclosure.html %}
             </div>
@@ -116,5 +114,9 @@
 
     </script>
 
+    <script type="text/javascript">
+        actionkit.forms.contextRoot = 'https://act.colorofchange.org/context/';
+        actionkit.forms.initPage(); actionkit.forms.initForm('act')
+    </script>
 </body>
 </html>

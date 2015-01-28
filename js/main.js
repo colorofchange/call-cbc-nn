@@ -35,11 +35,26 @@ jQuery( document ).ready(function( $ ) {
     });
 
     $('#call_button').click(function(e) {
+        e.preventDefault();
 
-        var phone = $('#phone').val();
+        var phone = $('#id_phone').val();
 
         if (!validatePhone(phone))
             return alert('Please enter a valid US phone number!');
+
+        var ak_data = $('form[name="act"]').serializeArray();
+
+        $.ajax({
+            url: 'https://act.colorofchange.org/act',
+            type: "post",
+            dataType: "json",
+            data: ak_data,
+            success: function(res) {
+                trackEvent('call-congress');
+
+                console.log('Placed call-congress call: ', res);
+            }
+        });
 
         var data = {
             campaignId: 'cbc-nn',
