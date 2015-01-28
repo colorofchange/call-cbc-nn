@@ -14,6 +14,7 @@
     <meta property="fb:admins" content="612663871"/>
     <meta property="og:description" content="Facebook Share Text"/>
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/overlay.css" rel="stylesheet">
     <style>
         .phone-fieldset { margin-top: 5px; }
         .overlay { display:none; }
@@ -30,7 +31,6 @@
     <script type="text/javascript">{% include share_tweet_text.js %}</script>
 
     <script type="text/javascript">
-        $.noConflict();
         actionkit.forms.initPage();
     </script>
 </head>
@@ -90,6 +90,9 @@
                         </div>
                         Share on Twitter
                     </a>
+                    <div class="bottom">
+                        <a class="btn close">&times; close</a>
+                    </div>
                 </div>
             </div>
         </div>
