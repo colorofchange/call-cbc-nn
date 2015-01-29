@@ -25,7 +25,7 @@
 
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.browser.js"></script>
-    <script type="text/javascript" src="https://act.colorofchange.org/samples/actionkit.js"></script>
+    <script async src="//act.colorofchange.org/samples/widget.js"></script>
     <script type="text/javascript" src="//c.shpg.org/176/sp.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
@@ -49,8 +49,8 @@
 
             <div class="petition-body">
                 <ul class="compact" id="ak-errors"></ul>
-                <form class="ak-form" name="act" class="clear phoneForm">
-                    <input type="hidden" name="page" value="" />
+                <form class="actionkit-widget" id="phoneForm">
+                    <input type="hidden" name="page" value="internet_freedom" />
                     <div id="unknown_user">{% include user_form.html %}</div>
                     <div id="known_user" style="display: none;">
                         Not <span id="known_user_name"></span>?  <a href="?" onclick="return actionkit.forms.logOut()">Click here.</a>
@@ -113,15 +113,6 @@
       ga('create', 'UA-54189940-5', 'auto');
       ga('send', 'pageview');
 
-    </script>
-
-    <script type="text/javascript">
-        var AK_PAGE_NAME = 'internet_freedom';
-        actionkit.forms.contextRoot = 'https://act.colorofchange.org/context/'+AK_PAGE_NAME;
-        actionkit.forms.initPage();
-        actionkit.forms.initForm('act');
-
-        $('form[name="act"] input[name="page"]').val(AK_PAGE_NAME);
     </script>
 </body>
 </html>

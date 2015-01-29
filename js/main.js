@@ -38,12 +38,7 @@ jQuery( document ).ready(function( $ ) {
     };
 
     $('#phoneForm').submit(function(e) {
-        e.preventDefault();
-        $('#call_button').click();
-    });
-
-    $('#call_button').click(function(e) {
-        e.preventDefault();
+//        e.preventDefault();
 
         // clear validation errors
         $('form[name="act"] input').removeClass('ak-error');
@@ -58,21 +53,6 @@ jQuery( document ).ready(function( $ ) {
         if (!validatePhone(phone)) {
             return fieldError('phone','Please enter a valid US phone number');
         }
-
-
-        var ak_data = $('form[name="act"]').serializeArray();
-
-        $.ajax({
-            url: 'https://act.colorofchange.org/act',
-            type: "post",
-            dataType: "json",
-            data: ak_data,
-            success: function(res) {
-                trackEvent('call-congress');
-
-                console.log('Placed call-congress call: ', res);
-            }
-        });
 
         var data = {
             campaignId: 'cbc-nn',
