@@ -80,7 +80,7 @@ jQuery( document ).ready(function( $ ) {
         };
 
         $.ajax({
-            url: 'http://api.theserepublicanslovecomcast.com/create',
+            url: 'http://api.call4netfreedom.org/create',
             type: "get",
             dataType: "json",
             data: data,
