@@ -16,6 +16,14 @@ var trackEvent = function(ev) {
 
 jQuery( document ).ready(function( $ ) {
 
+    var fieldError = function(name, text) {
+        var f = $('input[name="'+name+'"]');
+        f.addClass('ak-error');
+
+        var err = $('ul#ak-errors');
+        err.append('<li>'+text+'</li>');
+    };
+
     var validatePhone = function(num) {
         num = num.replace(/\s/g, '').replace(/\(/g, '').replace(/\)/g, '');
         num = num.replace("+", "").replace(/\-/g, '');
@@ -37,10 +45,20 @@ jQuery( document ).ready(function( $ ) {
     $('#call_button').click(function(e) {
         e.preventDefault();
 
-        var phone = $('#id_phone').val();
+        // clear validation errors
+        $('form[name="act"] input').removeClass('ak-error');
+        $('ul#ak-errors').empty();
 
-        if (!validatePhone(phone))
-            return alert('Please enter a valid US phone number!');
+        var email = $('#id_email').val();
+        if (!validateEmail(email)) {
+            return fieldError('email','Please enter a valid email address');
+        }
+
+        var phone = $('#id_phone').val();
+        if (!validatePhone(phone)) {
+            return fieldError('phone','Please enter a valid US phone number');
+        }
+
 
         var ak_data = $('form[name="act"]').serializeArray();
 
@@ -83,7 +101,7 @@ jQuery( document ).ready(function( $ ) {
     $('#email_button').click(function(e) {
 
         if (!validateEmail($('#email').val()))
-            return alert('Please enter a valid email address!');
+            return fieldError('email','Please enter a valid email address!');
 
         $('#email_form_fields').addClass('fade');
         $('.thanks').addClass('visible');
