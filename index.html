@@ -16,7 +16,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/overlay.css" rel="stylesheet">
     <style>
-        .phone-fieldset { margin-top: 5px; }
+        .phone-fieldset { margin-top: 3px; }
         .overlay { display:none; }
     </style>
     <link rel="icon" type="image/png" href="images/fav.png">
@@ -48,6 +48,7 @@
             <br>We need Internet freedom</h1>
 
             <div class="petition-body">
+                <ul class="compact" id="ak-errors"></ul>
                 <form class="ak-form" name="act" class="clear phoneForm">
                     <input type="hidden" name="page" value="" />
                     <div id="unknown_user">{% include user_form.html %}</div>
@@ -68,7 +69,7 @@
                 <br>We need Internet freedom</h1>
 
             <div class="petition-description">
-                 <img class="action-image" src="https://s3.amazonaws.com/s3.colorofchange.org/images/no_payola_215.jpg"> 
+                 <img class="action-image" src="/images/cbc_anti_members.jpg"> 
         
                 {% include cta.html %}
             </div>
@@ -80,10 +81,10 @@
                     {% include call_modal_top.html %}
                     {% include call_script.html %}
 
-                    <a class="btn facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=http://www.theserepublicanslovecomcast.com">Share on Facebook</a>
-                    <a class="btn twitter" target="_blank" href="https://twitter.com/intent/tweet?text=TheseRepublicansLoveComcast.com&text=&related=colorofchange">
+                    <a class="btn facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=http://www.call4netfreedom.org">Share on Facebook</a>
+                    <a class="btn twitter" target="_blank" href="https://twitter.com/intent/tweet?text=call4netfreedom.org&text=&related=colorofchange">
                         <div class="bubble">
-                            Tweet the URL <em>TheseRepublicansLoveComcast.com</em> to be featured on our Twitter feed!
+                            Tweet the URL <em>Call4NetFreedom.org</em> to be featured on our Twitter feed!
                             <div class="arrow-down"></div>
                         </div>
                         Share on Twitter
@@ -109,14 +110,18 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-54189940-4', 'auto');
+      ga('create', 'UA-54189940-5', 'auto');
       ga('send', 'pageview');
 
     </script>
 
     <script type="text/javascript">
-        actionkit.forms.contextRoot = 'https://act.colorofchange.org/context/';
-        actionkit.forms.initPage(); actionkit.forms.initForm('act')
+        var AK_PAGE_NAME = 'internet_freedom';
+        actionkit.forms.contextRoot = 'https://act.colorofchange.org/context/'+AK_PAGE_NAME;
+        actionkit.forms.initPage();
+        actionkit.forms.initForm('act');
+
+        $('form[name="act"] input[name="page"]').val(AK_PAGE_NAME);
     </script>
 </body>
 </html>
