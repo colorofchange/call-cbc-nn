@@ -275,6 +275,14 @@ a {
 }
 .clearfix { clear: both; }
 
+.partner-logos {
+	text-align: center;
+}
+img.partner-logo {
+	width:100%;
+	max-width:300px;
+}
+
 
 /* Media Queries for Responsive Design. */
 
