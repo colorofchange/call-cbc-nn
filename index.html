@@ -49,8 +49,8 @@
 
             <div class="petition-body">
                 <ul class="compact" id="ak-errors"></ul>
-                <form class="actionkit-widget" id="phoneForm">
-                    <input type="hidden" name="page" value="internet_freedom" />
+                <form class="actionkit-widget" id="phoneForm" action="http://act.colorofchange.org/act/" onsubmit="this.submitted=1;return false">
+                    <input type="hidden" name="page" value="NNCallTool" />
                     <div id="unknown_user">{% include user_form.html %}</div>
                     <div id="known_user" style="display: none;">
                         Not <span id="known_user_name"></span>?  <a href="?" onclick="return actionkit.forms.logOut()">Click here.</a>
@@ -61,8 +61,9 @@
                     </div>
                     <div class="clearfix"></div>
                     <input class="red-button" type="submit" value="Call Now!" id="call_button" />
-                </form>
                 {% include disclosure.html %}
+                </form>
+                <div id="phoneForm-replacement" style="display: none;"><h2>Thank you!</h2></div>
             </div>
 
             <h1 class="page-title tablet">Tell Black Lawmakers:
@@ -81,14 +82,9 @@
                     {% include call_modal_top.html %}
                     {% include call_script.html %}
 
-                    <a class="btn facebook" target="_blank" href="https://www.facebook.com/sharer.php?u=http://www.call4netfreedom.org">Share on Facebook</a>
-                    <a class="btn twitter" target="_blank" href="https://twitter.com/intent/tweet?text=call4netfreedom.org&text=&related=colorofchange">
-                        <div class="bubble">
-                            Tweet the URL <em>Call4NetFreedom.org</em> to be featured on our Twitter feed!
-                            <div class="arrow-down"></div>
-                        </div>
-                        Share on Twitter
-                    </a>
+                    <div class='sp_11425 sp_fb_large sp'></div>
+                    <div class='sp_11426 sp_tw_large sp'></div>
+                    <div class='sp_11427 sp_em_large sp'></div>
                     <div class="bottom">
                         <a class="btn close">&times; close</a>
                     </div>

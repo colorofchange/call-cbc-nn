@@ -22,6 +22,7 @@ jQuery( document ).ready(function( $ ) {
 
         var err = $('ul#ak-errors');
         err.append('<li>'+text+'</li>');
+        return false;
     };
 
     var validatePhone = function(num) {
@@ -37,7 +38,7 @@ jQuery( document ).ready(function( $ ) {
         return num;
     };
 
-    $('#phoneForm').submit(function(e) {
+    onWidgetSubmit = function(e) {
 //        e.preventDefault();
 
         // clear validation errors
@@ -71,7 +72,9 @@ jQuery( document ).ready(function( $ ) {
             }
         });
         showOverlay();
-    });
+        return true;
+    };
+    $('#phoneForm').submit(onWidgetSubmit);
 
     $('#emailForm').submit(function(e) {
         e.preventDefault();
